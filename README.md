@@ -6,56 +6,54 @@ Static website for **CRTN** — A Progressive Knowledge Collective for Social Tr
 
 ## Host on GitHub Pages as `crtn.github.io`
 
-Follow these steps to publish the site at **https://crtn.github.io**.
+To get the URL **https://crtn.github.io**, GitHub requires:
 
-### 1. Create a GitHub repository
+1. A **user account** or **organization** named exactly **`crtn`**
+2. A **repository** named exactly **`crtn.github.io`** (not just `crtn`)
 
-- Go to [github.com/new](https://github.com/new).
-- **Repository name:** `crtn` (must be exactly `crtn` for the URL `crtn.github.io`).
-- Set visibility to **Public**.
-- Do **not** add a README, .gitignore, or license (you already have files locally).
-- Click **Create repository**.
+GitHub only serves `crtn.github.io` when the repo is **crtn/crtn.github.io**. Your current repo [TN-Center-For-Research/crtn](https://github.com/TN-Center-For-Research/crtn) will always be **tn-center-for-research.github.io/crtn/**.
 
-### 2. Initialize git and push your site
+### Option A: Create a new account/org `crtn` and use `crtn.github.io`
 
-In a terminal, from your project folder:
+1. **Create a GitHub account or organization named `crtn`**
+   - New user: [github.com/signup](https://github.com/signup) — choose username **crtn** (if still available).
+   - Or create an org: [github.com/organizations/plan](https://github.com/organizations/plan) — create organization **crtn**.
 
-```bash
-cd /home/zs-khaleel/Documents/crtn
+2. **Create the Pages repository**
+   - Go to [github.com/new](https://github.com/new) **while logged in as `crtn`**.
+   - **Repository name:** `crtn.github.io` (must be exactly this).
+   - Visibility: **Public**. Do not add README, .gitignore, or license.
+   - Click **Create repository**.
 
-# Initialize git (if not already)
-git init
+3. **Push this project to the new repo**
 
-# Add all files (index.html, styles.css, asset/banner.png)
-git add index.html styles.css asset/
-git commit -m "Add CRTN static website"
+   From your project folder:
 
-# Add GitHub as remote (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/crtn.git
+   ```bash
+   cd /path/to/crtn
 
-# Push to GitHub (main branch)
-git branch -M main
-git push -u origin main
-```
+   git init
+   git add index.html styles.css README.md asset/
+   git commit -m "Add CRTN static website"
+   git remote add origin https://github.com/crtn/crtn.github.io.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-**Important:** Ensure `asset/banner.png` exists in the `asset` folder before running `git add asset/`. If the folder is empty, create it and add your banner image there.
+4. **Enable Pages**
+   - Repo **Settings** → **Pages**.
+   - Source: **Deploy from a branch**.
+   - Branch: **main**, Folder: **/ (root)** → Save.
 
-### 3. Turn on GitHub Pages
+   The site will be at **https://crtn.github.io** (may take 1–2 minutes).
 
-- Open your repo: **https://github.com/YOUR_USERNAME/crtn**
-- Go to **Settings** → **Pages** (left sidebar).
-- Under **Build and deployment**:
-  - **Source:** Deploy from a branch
-  - **Branch:** `main` (or `master`)
-  - **Folder:** `/ (root)`
-- Click **Save**.
+### Option B: Keep TN-Center-For-Research and use a custom domain
 
-### 4. Wait and open your site
+If you want to keep the repo under [TN-Center-For-Research](https://github.com/TN-Center-For-Research/crtn):
 
-- GitHub may take 1–2 minutes to build.
-- Your site will be at: **https://crtn.github.io**
-
-If you used a different branch or folder, adjust the **Branch** and **Folder** options in Settings → Pages accordingly.
+- Buy a domain like **crtn.in** or **crtn.org**.
+- In repo **Settings** → **Pages**, set **Custom domain** to that domain and follow GitHub’s DNS instructions.
+- The site will then be reachable at **https://crtn.in** (or your chosen domain), while still being hosted from the same repo.
 
 ---
 
